@@ -1,0 +1,2 @@
+# HoloearthGameOpener
+HoloearthGameOpener by RiritoNinigaya
