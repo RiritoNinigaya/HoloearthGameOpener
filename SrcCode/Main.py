@@ -43,7 +43,10 @@ def Main():
     startupinfo.dwFlags = 0x1
     startupinfo.wShowWindow = 0x0
     startupinfo.cb = sizeof(startupinfo)
-    if(ctypes_createprocess.CreateProcessW("E:\\COVER corp\\HoloearthApps\\Holoearth\\Holoearth.exe", None, None, None, None, creation_flags, None, None, byref(startupinfo), byref(processinfo))):
+    if(ctypes_createprocess.CreateProcessA(bytes("E:\\COVER corp\\HoloearthApps\\Holoearth\\Holoearth.exe", "UTF-8"), None, None, None, None, creation_flags, None, None, byref(startupinfo), byref(processinfo))):
         print("[+] Process Has Been Created!!!")
     else:
         print("[-] Failed to Create Process!!!")
+
+if __name__ == "__main__":
+    Main()
