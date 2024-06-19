@@ -35,7 +35,6 @@ class PROCESS_INFORMATION(Structure):
         ("dwThreadId", DWORD),
         ]
 def Main():
-    creation_flags = DEBUG_PROCESS
     startupinfo = STARTUPINFO()
     processinfo = PROCESS_INFORMATION()
     ctypes_createprocess = ctypes.WinDLL("Kernel32")
@@ -43,7 +42,7 @@ def Main():
     startupinfo.dwFlags = 0x1
     startupinfo.wShowWindow = 0x0
     startupinfo.cb = sizeof(startupinfo)
-    if(ctypes_createprocess.CreateProcessA(bytes("E:\\COVER corp\\HoloearthApps\\Holoearth\\Holoearth.exe", "UTF-8"), None, None, None, None, creation_flags, None, None, byref(startupinfo), byref(processinfo))):
+    if(ctypes_createprocess.CreateProcessA(bytes("E:\\COVER corp\\HoloearthApps\\Holoearth\\Holoearth.exe", "UTF-8"), None, None, None, None, 0, None, None, byref(startupinfo), byref(processinfo))):
         print("[+] Process Has Been Created!!!")
     else:
         print("[-] Failed to Create Process!!!")
